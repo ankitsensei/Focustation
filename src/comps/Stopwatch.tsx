@@ -41,10 +41,10 @@ const Stopwatch = () => {
   return (
     <div className="flex flex-col justify-center items-center border-2 border-zinc-600 rounded-xl p-5 w-[600px]">
       <div className="flex justify-center items-end text-8xl font-bold">
-        <h1>{`${String(formatTime()[0]).padStart(2, '0')}`}:</h1>
-        <h1>{`${String(formatTime()[1]).padStart(2, '0')}`}:</h1>
-        <h1>{`${String(formatTime()[2]).padStart(2, '0')}`}.</h1>
-        <h2 className='text-5xl text-rose-500'>{formatTime()[3]}</h2>
+        <h1 className="[font-variant-numeric:tabular-nums]">{`${String(formatTime()[0]).padStart(2, '0')}`}:</h1>
+        <h1 className="[font-variant-numeric:tabular-nums]">{`${String(formatTime()[1]).padStart(2, '0')}`}:</h1>
+        <h1 className="[font-variant-numeric:tabular-nums]">{`${String(formatTime()[2]).padStart(2, '0')}`}.</h1>
+        <h2 className='text-5xl text-rose-500 [font-variant-numeric:tabular-nums]'>{formatTime()[3]}</h2>
       </div>
       <div className="flex gap-2 justify-center items-center">
         <Btn title="Start" onClick={() => setIsRunning(true)} />

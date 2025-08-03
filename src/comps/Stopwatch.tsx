@@ -10,6 +10,7 @@ const Stopwatch = () => {
   const [hasStartedOnce, setHasStartedOnce] = useState<boolean>(false);
   const [hasStopped, setHasStopped] = useState<boolean>(false);
   const intervalRef = useRef<number | null>(null);
+  const [totalCountdownTime, setTotalCountdowntime] = useState<number>(0)
 
   // Start or stop timer
   useEffect(() => {
@@ -26,6 +27,10 @@ const Stopwatch = () => {
     }
   }, [isRunning]);
 
+  useEffect(() => {
+    setTotalCountdowntime(parseFloat((time / 60000).toFixed(2)));
+  }, [time]);
+
   // Format time [HH:MM:SS:MS]
   const formatTime = () => {
     const hours = Math.floor(time / 3600000);
@@ -33,11 +38,33 @@ const Stopwatch = () => {
     const seconds = Math.floor((time % 60000) / 1000);
     const miliSeconds = Math.floor((time % 1000) / 100);
 
+
     return (
       [
         hours, minutes, seconds, miliSeconds
       ]
     );
+  }
+
+  // Handle clicks
+  const handleStart = () => {
+    setIsRunning(true);
+    setHasStartedOnce(true);
+    setHasStopped(false);
+  }
+
+  const handlePause = () => {
+    setIsRunning(false);
+    setHasStopped(true);
+    setHasStartedOnce(false);
+  }
+
+  const handleDone = () => {
+    setTime(0);
+    setIsRunning(false);
+    setHasStartedOnce(false);
+    setHasStopped(false);
+    console.log(`${totalCountdownTime} minutes.`)
   }
 
   return (
@@ -52,23 +79,23 @@ const Stopwatch = () => {
         <Btn
           title="Start"
           className="text-green-600 border-2 border-green-600"
-          onClick={() => { setIsRunning(true); setHasStartedOnce(true); setHasStopped(false) }}
+          onClick={() => handleStart()}
         />
         {
           hasStartedOnce && <div>
             <Btn
-              title="Stop"
+              title="Pause"
               className='text-red-500 border-2 border-red-500'
-              onClick={() => { setIsRunning(false); setHasStopped(true); setHasStartedOnce(false) }}
+              onClick={() => handlePause()}
             />
           </div>
         }
         {
           hasStopped &&
           <Btn
-            title="Reset"
+            title="Done"
             className='text-yellow-500 border-2 border-yellow-500'
-            onClick={() => { setTime(0); setIsRunning(false); }}
+            onClick={() => handleDone()}
           />
         }
       </div>

@@ -24,22 +24,28 @@ const Stopwatch = () => {
     }
   }, [isRunning]);
 
-  // Format time [HH:MM:SS]
+  // Format time [HH:MM:SS:MS]
   const formatTime = () => {
     const hours = Math.floor(time / 3600000);
     const minutes = Math.floor(time / 60000);
     const seconds = Math.floor((time % 60000) / 1000);
+    const miliSeconds = Math.floor((time % 1000) / 100);
 
     return (
-      `${String(hours).padStart(2, '0')}:` +
-      `${String(minutes).padStart(2, '0')}:` +
-      `${String(seconds).padStart(2, '0')}`
-    )
+      [
+        hours, minutes, seconds, miliSeconds
+      ]
+    );
   }
 
   return (
-    <div className="flex flex-col justify-center items-center border-2 border-zinc-600 rounded-xl p-5 w-[500px]">
-      <h1 className="text-8xl font-bold">{formatTime()}</h1>
+    <div className="flex flex-col justify-center items-center border-2 border-zinc-600 rounded-xl p-5 w-[600px]">
+      <div className="flex justify-center items-end text-8xl font-bold">
+        <h1>{`${String(formatTime()[0]).padStart(2, '0')}`}:</h1>
+        <h1>{`${String(formatTime()[1]).padStart(2, '0')}`}:</h1>
+        <h1>{`${String(formatTime()[2]).padStart(2, '0')}`}.</h1>
+        <h2 className='text-5xl text-rose-500'>{formatTime()[3]}</h2>
+      </div>
       <div className="flex gap-2 justify-center items-center">
         <Btn title="Start" onClick={() => setIsRunning(true)} />
         <Btn title="Stop" onClick={() => setIsRunning(false)} />

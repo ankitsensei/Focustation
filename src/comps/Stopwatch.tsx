@@ -41,7 +41,7 @@ const Stopwatch = () => {
   }
 
   return (
-    <div className="flex flex-col justify-center items-center border-2 border-zinc-600 rounded-xl p-5 w-[600px]">
+    <div className="flex flex-col justify-center items-center rounded-xl p-5">
       <div className="flex justify-center items-end text-8xl font-bold">
         <h1 className="[font-variant-numeric:tabular-nums]">{`${String(formatTime()[0]).padStart(2, '0')}`}:</h1>
         <h1 className="[font-variant-numeric:tabular-nums]">{`${String(formatTime()[1]).padStart(2, '0')}`}:</h1>

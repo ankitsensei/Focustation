@@ -7,6 +7,8 @@ const Stopwatch = () => {
 
   const [time, setTime] = useState<number>(0); // time in miliseconds
   const [isRunning, setIsRunning] = useState<boolean>(false);
+  const [hasStartedOnce, setHasStartedOnce] = useState<boolean>(false);
+  const [hasStopped, setHasStopped] = useState<boolean>(false);
   const intervalRef = useRef<number | null>(null);
 
   // Start or stop timer
@@ -47,9 +49,28 @@ const Stopwatch = () => {
         <h2 className='text-5xl text-rose-500 [font-variant-numeric:tabular-nums]'>{formatTime()[3]}</h2>
       </div>
       <div className="flex gap-2 justify-center items-center">
-        <Btn title="Start" onClick={() => setIsRunning(true)} />
-        <Btn title="Stop" onClick={() => setIsRunning(false)} />
-        <Btn title="Reset" onClick={() => { setTime(0); setIsRunning(false); }} />
+        <Btn
+          title="Start"
+          className="text-green-600 border-2 border-green-600"
+          onClick={() => { setIsRunning(true); setHasStartedOnce(true); setHasStopped(false) }}
+        />
+        {
+          hasStartedOnce && <div>
+            <Btn
+              title="Stop"
+              className='text-red-500 border-2 border-red-500'
+              onClick={() => { setIsRunning(false); setHasStopped(true); setHasStartedOnce(false) }}
+            />
+          </div>
+        }
+        {
+          hasStopped &&
+          <Btn
+            title="Reset"
+            className='text-yellow-500 border-2 border-yellow-500'
+            onClick={() => { setTime(0); setIsRunning(false); }}
+          />
+        }
       </div>
     </div>
   )

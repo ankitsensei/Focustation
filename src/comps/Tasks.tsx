@@ -4,7 +4,7 @@ import Stopwatch from "../comps/Stopwatch"
 import Btn from "./Btn"
 
 const Tasks = () => {
-    const [tasks, setTasks] = useState<string[]>(["DSA", "Web Dev"]);
+    const [tasks, setTasks] = useState<string[]>(["DSA", "Web Dev", "Monkeytype", "Video Editing", "Gaming"]);
     const [PlusButtonToggle, setPlusButtonToggle] = useState<boolean>(true);
     const [addTaskToggle, setAddTaskToggle] = useState<boolean>(false);
     const [addTask, setAddTask] = useState<string>("")
@@ -30,21 +30,21 @@ const Tasks = () => {
     console.log(selectedTask);
 
     return (
-        <div className='flex flex-col gap-5 w-full'>
+        <div className='flex flex-col gap-5 w-[500px]'>
             <h2 className='text-3xl font-semibold'>Select Task</h2>
             {
                 showStopwatch ?
                     <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-6 shadow-lg">
                         <Stopwatch />
                     </div> :
-                    <div>
-                        <div className='flex gap-5'>
+                    <div className='flex flex-col gap-4 justify-center items-center'>
+                        <div className='flex flex-wrap gap-5'>
                             {
-                                tasks.map((task, index) => (
+                                tasks.sort().map((task, index) => (
                                     <li
                                         key={index}
                                         onClick={() => handleSelectTask(task)}
-                                        className='border-1 border-zinc-500 px-5 py-2 rounded-lg hover:bg-zinc-900'
+                                        className='border-1 border-zinc-500 px-5 py-2 rounded-lg hover:bg-zinc-900 transition-transform duration-200 hover:scale-105'
                                     >{task}</li>
                                 ))
                             }

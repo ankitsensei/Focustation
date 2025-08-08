@@ -66,7 +66,12 @@ const Tasks = () => {
                                 <Btn
                                     title='Add'
                                     onClick={() => handleTaskAdd(addTask)}
-                                    className='border-1 border-zinc-500'
+                                    className='border-1 border-blue-500 text-blue-500'
+                                />
+                                <Btn
+                                    title='Cancel'
+                                    onClick={() => { setAddTaskToggle(false); setPlusButtonToggle(true) }}
+                                    className='border-1 border-red-500 text-red-500'
                                 />
                             </div>
                         }

@@ -78,14 +78,14 @@ const Stopwatch = () => {
       <div className="flex gap-2 justify-center items-center">
         <Btn
           title="Start"
-          className="text-green-600 border-2 border-green-600"
+          className="text-green-400 bg-green-900"
           onClick={() => handleStart()}
         />
         {
           hasStartedOnce && <div>
             <Btn
               title="Pause"
-              className='text-red-500 border-2 border-red-500'
+              className='text-red-500 bg-red-900'
               onClick={() => handlePause()}
             />
           </div>
@@ -94,7 +94,7 @@ const Stopwatch = () => {
           hasStopped &&
           <Btn
             title="Done"
-            className='text-yellow-500 border-2 border-yellow-500'
+            className='text-yellow-500 bg-yellow-900'
             onClick={() => handleDone()}
           />
         }

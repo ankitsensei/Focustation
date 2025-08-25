@@ -44,14 +44,14 @@ const Tasks = () => {
                                     <li
                                         key={index}
                                         onClick={() => handleSelectTask(task)}
-                                        className='border-1 border-zinc-500 px-5 py-2 rounded-lg hover:bg-zinc-900 transition-transform duration-200 hover:scale-105'
+                                        className='border-1 border-zinc-500 px-5 py-2 rounded-lg hover:bg-pink-800 transition-transform duration-200 hover:scale-105'
                                     >{task}</li>
                                 ))
                             }
                         </div>
                         {
                             PlusButtonToggle &&
-                            <Btn title='+' className='border-sky-500 text-sky-500' onClick={() => { setPlusButtonToggle(!PlusButtonToggle); setAddTaskToggle(true) }} />
+                            <Btn title='+' className='border-1 border-sky-500 text-sky-500 bg-sky-900' onClick={() => { setPlusButtonToggle(!PlusButtonToggle); setAddTaskToggle(true) }} />
                         }
                         {
                             addTaskToggle &&
@@ -66,12 +66,12 @@ const Tasks = () => {
                                 <Btn
                                     title='Add'
                                     onClick={() => handleTaskAdd(addTask)}
-                                    className='border-1 border-blue-400 text-blue-400'
+                                    className='border-1 border-blue-400 text-blue-400 bg-blue-900'
                                 />
                                 <Btn
                                     title='Cancel'
                                     onClick={() => { setAddTaskToggle(false); setPlusButtonToggle(true) }}
-                                    className='border-1 border-red-400 text-red-400'
+                                    className='border-1 border-red-00 text-red-400 bg-red-900'
                                 />
                             </div>
                         }

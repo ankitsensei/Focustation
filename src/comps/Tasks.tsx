@@ -38,7 +38,7 @@ const Tasks = () => {
                         <Stopwatch />
                     </div> :
                     <div className='flex flex-col gap-4 justify-center items-center'>
-                        <div className='flex flex-wrap gap-5'>
+                        <div className='flex flex-wrap gap-2'>
                             {
                                 tasks.sort().map((task, index) => (
                                     <li
@@ -66,12 +66,12 @@ const Tasks = () => {
                                 <Btn
                                     title='Add'
                                     onClick={() => handleTaskAdd(addTask)}
-                                    className='border-1 border-blue-500 text-blue-500'
+                                    className='border-1 border-blue-400 text-blue-400'
                                 />
                                 <Btn
                                     title='Cancel'
                                     onClick={() => { setAddTaskToggle(false); setPlusButtonToggle(true) }}
-                                    className='border-1 border-red-500 text-red-500'
+                                    className='border-1 border-red-400 text-red-400'
                                 />
                             </div>
                         }

@@ -1,8 +1,15 @@
+import { Routes, Route } from "react-router-dom";
+
 import Hero from "./pages/Hero"
+
 const App = () => {
   return (
     <div className="w-full h-full">
-      <Hero />
+
+      {/* Routes */}
+      <Routes>
+        <Route path="/" element={<Hero />} />
+      </Routes>
     </div>
   )
 }

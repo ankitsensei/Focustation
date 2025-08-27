@@ -1,4 +1,5 @@
 import Tasks from "../comps/Tasks"
+import Stats from "../comps/Stats"
 
 import Wall from "../assets/walls/work-lofi-wall.jpg"
 
@@ -13,6 +14,9 @@ const Hero = () => {
 
       <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-6 shadow-lg">
         <Tasks />
+      </div>
+      <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-6 shadow-lg">
+        <Stats />
       </div>
     </div>
   )

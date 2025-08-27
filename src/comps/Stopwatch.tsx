@@ -1,4 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
+// import { useLocation } from "react-router-dom";
+
+import Wall from "../assets/walls/work-lofi-wall.jpg"
 
 import Btn from "./Btn"
 
@@ -65,39 +68,43 @@ const Stopwatch = () => {
     setHasStartedOnce(false);
     setHasStopped(false);
     console.log(`${totalCountdownTime} minutes.`)
+    console.log(``)
   }
 
   return (
-    <div className="flex flex-col justify-center items-center rounded-xl p-5">
-      <div className="flex justify-center items-end text-8xl font-bold">
-        <h1 className="[font-variant-numeric:tabular-nums]">{`${String(formatTime()[0]).padStart(2, '0')}`}:</h1>
-        <h1 className="[font-variant-numeric:tabular-nums]">{`${String(formatTime()[1]).padStart(2, '0')}`}:</h1>
-        <h1 className="[font-variant-numeric:tabular-nums]">{`${String(formatTime()[2]).padStart(2, '0')}`}.</h1>
-        <h2 className='text-5xl text-rose-500 [font-variant-numeric:tabular-nums]'>{formatTime()[3]}</h2>
-      </div>
-      <div className="flex gap-2 justify-center items-center">
-        <Btn
-          title="Start"
-          className="text-green-400 bg-green-900"
-          onClick={() => handleStart()}
-        />
-        {
-          hasStartedOnce && <div>
-            <Btn
-              title="Pause"
-              className='text-red-500 bg-red-900'
-              onClick={() => handlePause()}
-            />
-          </div>
-        }
-        {
-          hasStopped &&
+    <div className="w-full h-screen flex flex-col justify-start pt-20 items-center p-5" style={{ backgroundImage: `url(${Wall})` }}>
+      
+      <div className='w-[550px] h-[200px] flex flex-col justify-center items-center rounded-2xl bg-white/20 backdrop-blur-md shadow-lg border border-white/30'>
+        <div className="flex justify-center items-end text-8xl font-bold">
+          <h1 className="[font-variant-numeric:tabular-nums]">{`${String(formatTime()[0]).padStart(2, '0')}`}:</h1>
+          <h1 className="[font-variant-numeric:tabular-nums]">{`${String(formatTime()[1]).padStart(2, '0')}`}:</h1>
+          <h1 className="[font-variant-numeric:tabular-nums]">{`${String(formatTime()[2]).padStart(2, '0')}`}.</h1>
+          <h2 className='text-5xl text-rose-500 [font-variant-numeric:tabular-nums]'>{formatTime()[3]}</h2>
+        </div>
+        <div className="flex gap-2 justify-center items-center">
           <Btn
-            title="Done"
-            className='text-yellow-500 bg-yellow-900'
-            onClick={() => handleDone()}
+            title="Start"
+            className="text-green-400 bg-green-900"
+            onClick={() => handleStart()}
           />
-        }
+          {
+            hasStartedOnce && <div>
+              <Btn
+                title="Pause"
+                className='text-red-500 bg-red-900'
+                onClick={() => handlePause()}
+              />
+            </div>
+          }
+          {
+            hasStopped &&
+            <Btn
+              title="Done"
+              className='text-yellow-500 bg-yellow-900'
+              onClick={() => handleDone()}
+            />
+          }
+        </div>
       </div>
     </div>
   )

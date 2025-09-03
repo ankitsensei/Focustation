@@ -34,7 +34,7 @@ const AllTimeGraph = () => {
             },
             title: {
                 display: true,
-                text: "Total Time Spent (of all time)",
+                // text: "Total Time Spent (of all time)",
             },
         },
         scales: {
@@ -47,7 +47,7 @@ const AllTimeGraph = () => {
 
     return (
         <div>
-            <h1>Graph</h1>
+            <h1>All Time Graph</h1>
             <div style={{ width: "600px", margin: "auto" }}>
                 <Bar data={data} options={options} />
             </div>

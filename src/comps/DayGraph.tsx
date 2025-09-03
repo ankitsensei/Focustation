@@ -34,7 +34,7 @@ const DayGraph = () => {
             },
             title: {
                 display: true,
-                text: "Total Time Spent (of all time)",
+                // text: "Time spent today",
             },
         },
         scales: {
@@ -47,7 +47,7 @@ const DayGraph = () => {
 
     return (
         <div>
-            <h1>Graph</h1>
+            <h1>Today's Graph</h1>
             <div style={{ width: "600px", margin: "auto" }}>
                 <Bar data={data} options={options} />
             </div>

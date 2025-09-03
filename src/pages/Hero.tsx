@@ -14,15 +14,13 @@ const Hero = () => {
     >
       <h1 className='font-semibold text-6xl mb-8'>Focustation</h1>
 
-      <div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 items-center">
+      <div className="flex flex-col justify-center items-center gap-3">
+        <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-6 shadow-lg">
+          <Tasks />
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-3 items-center">
           <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-6 shadow-lg">
             <DayGraph />
-          </div>
-          <div className="flex flex-col gap-3">
-            <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-6 shadow-lg">
-              <Tasks />
-            </div>
           </div>
           <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-6 shadow-lg">
             <WeekGraph />
@@ -31,7 +29,6 @@ const Hero = () => {
             <AllTimeGraph />
           </div>
         </div>
-
       </div>
     </div>
   )

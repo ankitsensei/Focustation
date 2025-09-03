@@ -9,15 +9,10 @@ import {
     Legend,
 } from "chart.js";
 
-// Register required components
-ChartJS.register(
-    CategoryScale,
-    LinearScale,
-    BarElement,
-    Title,
-    Tooltip,
-    Legend
-);
+import type { ChartOptions } from "chart.js";
+
+
+ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 const DayGraph = () => {
     const data = {
@@ -31,11 +26,22 @@ const DayGraph = () => {
         ],
     };
 
-    const options = {
+    const options: ChartOptions<"bar"> = {
         responsive: true,
         plugins: {
-            legend: { position: "top" },
-            title: { display: true, text: "Time spent this day" },
+            legend: {
+                position: "top" as const,
+            },
+            title: {
+                display: true,
+                text: "Total Time Spent (of all time)",
+            },
+        },
+        scales: {
+            y: {
+                beginAtZero: true,
+                title: { display: true, text: "Hours" },
+            },
         },
     };
 

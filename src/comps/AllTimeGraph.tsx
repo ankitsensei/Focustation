@@ -9,17 +9,12 @@ import {
     Legend,
 } from "chart.js";
 
-// Register required components
-ChartJS.register(
-    CategoryScale,
-    LinearScale,
-    BarElement,
-    Title,
-    Tooltip,
-    Legend
-);
+import type { ChartOptions } from "chart.js";
 
-const DayGraph = () => {
+
+ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
+
+const AllTimeGraph = () => {
     const data = {
         labels: ["DSA", "Gaming", "Monkeytype", "Video editing", "Web Dev"],
         datasets: [
@@ -31,11 +26,22 @@ const DayGraph = () => {
         ],
     };
 
-    const options = {
+    const options: ChartOptions<"bar"> = {
         responsive: true,
         plugins: {
-            legend: { position: "top" },
-            title: { display: true, text: "Total Time Spent (of all time)" },
+            legend: {
+                position: "top" as const,
+            },
+            title: {
+                display: true,
+                text: "Total Time Spent (of all time)",
+            },
+        },
+        scales: {
+            y: {
+                beginAtZero: true,
+                title: { display: true, text: "Hours" },
+            },
         },
     };
 
@@ -49,4 +55,4 @@ const DayGraph = () => {
     );
 };
 
-export default DayGraph;
+export default AllTimeGraph;

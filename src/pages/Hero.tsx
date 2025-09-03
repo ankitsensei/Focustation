@@ -10,7 +10,7 @@ const Hero = () => {
 
   return (
     <div
-      className='flex flex-col pt-20 items-center w-full h-screen bg-cover bg-fixed  text-white'
+      className='flex flex-col pt-20 items-center w-full h-full bg-cover bg-fixed  text-white hide-scrollbar'
       style={{ backgroundImage: `url(${Wall})` }}
     >
       <h1 className='font-semibold text-6xl mb-8'>Focustation</h1>

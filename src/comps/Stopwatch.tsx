@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 // import { useLocation } from "react-router-dom";
 
-import Wall from "../assets/walls/work-lofi-wall.jpg"
+import Wall from "../assets/walls/cat-lofi-wall.jpg"
 
 import Btn from "./Btn"
 
@@ -72,7 +72,8 @@ const Stopwatch = () => {
   }
 
   return (
-    <div className="w-full h-screen flex flex-col justify-start pt-20 items-center p-5" style={{ backgroundImage: `url(${Wall})` }}>
+    <div className='flex flex-col pt-20 items-center w-full h-screen bg-cover bg-fixed  text-white hide-scrollbar'
+      style={{ backgroundImage: `url(${Wall})` }}>
       
       <div className='w-[550px] h-[200px] flex flex-col justify-center items-center rounded-2xl bg-white/20 backdrop-blur-md shadow-lg border border-white/30'>
         <div className="flex justify-center items-end text-8xl font-bold">

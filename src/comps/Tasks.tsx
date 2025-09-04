@@ -8,6 +8,7 @@ import Btn from "./Btn"
 const Tasks = () => {
     const navigate = useNavigate();
     const [tasks, setTasks] = useState<string[]>(["DSA", "Web Dev", "Monkeytype", "Video Editing", "Gaming"]);
+    // const [timeSpent, setTimeSpent] = useState<string[]>([60, 120, 5, 30, 60]);
     const [PlusButtonToggle, setPlusButtonToggle] = useState<boolean>(true);
     const [addTaskToggle, setAddTaskToggle] = useState<boolean>(false);
     const [addTask, setAddTask] = useState<string>("");

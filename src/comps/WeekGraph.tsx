@@ -20,7 +20,7 @@ const WeekGraph = () => {
         datasets: [
             {
                 label: "Minutes",
-                data: [2, 0.5, 0.1, 2, 3],
+                data: [60, 30, 5, 60, 120],
                 backgroundColor: "#f5865c",
             },
         ],

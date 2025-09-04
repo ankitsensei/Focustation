@@ -19,7 +19,7 @@ const WeekGraph = () => {
         labels: ["DSA", "Gaming", "Monkeytype", "Video editing", "Web Dev"],
         datasets: [
             {
-                label: "Hours",
+                label: "Minutes",
                 data: [2, 0.5, 0.1, 2, 3],
                 backgroundColor: "#f5865c",
             },
@@ -40,7 +40,7 @@ const WeekGraph = () => {
         scales: {
             y: {
                 beginAtZero: true,
-                title: { display: true, text: "Hours" },
+                title: { display: true, text: "Minutes" },
             },
         },
     };
